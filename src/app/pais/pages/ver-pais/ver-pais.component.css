@@ -1,0 +1,10 @@
+.small-flag {
+  width: 50px;
+  margin-left: 10px;
+}
+
+small {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+}

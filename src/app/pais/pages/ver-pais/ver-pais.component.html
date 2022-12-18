@@ -1,0 +1,32 @@
+<div *ngIf="!pais; else divPais" class="alert alert-info">
+  Espere por favor...
+</div>
+
+<ng-template #divPais>
+  <div class="row">
+    <div class="col-12">
+      <h1>
+        País:
+        <small
+          >{{ pais.name.common }} - {{ pais.cca2 }}
+          <img [src]="pais.flags.svg" class="small-flag"
+        /></small>
+      </h1>
+      <h5>
+        Continente: <small>{{ pais.continents }}</small>
+      </h5>
+      <h5>
+        Capital: <small>{{ pais.capital }}</small>
+      </h5>
+      <h5>
+        Población: <small>{{ pais.population | number }}</small>
+      </h5>
+      <h5>
+        Zona horaria: <small>{{ pais.timezones[0] }}</small>
+      </h5>
+      <h5>
+        Idiomas: <small>{{ pais.languages | json }}</small>
+      </h5>
+    </div>
+  </div>
+</ng-template>
