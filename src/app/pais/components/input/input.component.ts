@@ -18,7 +18,7 @@ export class InputComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.debouncer.pipe(debounceTime(300)).subscribe(valor => console.log(valor))
+    this.debouncer.pipe(debounceTime(300)).subscribe(valor => this.onDebounce.emit(valor))
   }
 
   buscar() {

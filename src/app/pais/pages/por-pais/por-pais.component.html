@@ -1,24 +1,35 @@
-<h2>Por país:</h2>
-<hr />
+<div class="animate__animated animate__fadeIn">
+  <h2>Por país:</h2>
+  <hr />
 
-<div class="row">
-  <div class="col">
-    <app-input
-      (onEnter)="buscar($event)"
-      (onDebounce)="sugerencias($event)"
-      placeholder="Buscar país..."
-    ></app-input>
+  <div class="row">
+    <div class="col">
+      <app-input
+        (onEnter)="buscar($event)"
+        (onDebounce)="sugerencias($event)"
+        placeholder="Buscar país..."
+      ></app-input>
+    </div>
   </div>
-</div>
 
-<hr />
+  <ul class="list-group">
+    <li
+      *ngFor="let pais of paisesSugeridos"
+      class="list-group-item list-group-item-action"
+    >
+      {{ pais.name }}
+    </li>
+  </ul>
 
-<div class="alert alert-danger" *ngIf="error">
-  Tu búsqueda no arrojó resultados
-</div>
+  <hr />
 
-<div *ngIf="paises.length > 0" class="row">
-  <div class="col">
-    <app-tabla [paises]="paises"></app-tabla>
+  <div class="alert alert-danger" *ngIf="error">
+    Tu búsqueda no arrojó resultados
+  </div>
+
+  <div *ngIf="paises.length > 0" class="row">
+    <div class="col">
+      <app-tabla [paises]="paises"></app-tabla>
+    </div>
   </div>
 </div>
